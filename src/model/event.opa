@@ -25,8 +25,8 @@ module Event{
         the same over all clients we know which event we need to update.
     */
     client function broadcast_calendar_handler(actionEvent actEvnt){
-        Logging.print("B R O A D C A S T - R E C E I V E D {actEvnt}")
-        match(actEvnt){
+        Logging.print("BROADCAST - RECEIVED {actEvnt}")
+        res = match(actEvnt){
             case {action: {update}, ~event}:
 
                 //some client UPDATEd an event (can be a reschedule)
@@ -46,6 +46,14 @@ module Event{
                 ClientEvents.deleteEvent(event);//delete the event from local storage
 
         }
+
+        match(res){
+            case {failure: msg}: 
+                //temporarily failure handling
+                Failure.graceful_inform(msg);
+            case {success}: void;
+        }        
+             
     }
 
     /*
@@ -63,15 +71,20 @@ module Event{
 
     */
     server function serverConfirmAndBroadcast(func, event, action, failmsg){
-        match(func(event)){
-            case ~{success: DBevt}: 
-                //perform broadcast to inform other clients -> will invoke for example for 'update' 
-                //the function  ClientEvents.updateEvent(event); on all clients (including ourselfs)
-                broadcast(DBevt, action);
-                {success}
-            case {failure: _}: 
-                {failure: failmsg}
-            }  
+        closure = function(){
+            match(func(event)){
+                case ~{success: DBevt}: 
+                    //perform broadcast to inform other clients -> will invoke for example for 'update' 
+                    //the function  ClientEvents.updateEvent(event); on all clients (including ourselfs)
+                    broadcast(DBevt, action);
+                    {success}
+                case {failure: _}: 
+                    {failure: failmsg}
+            }
+        } 
+
+        //temporarily failure handling
+        Failure.retry_on_failure(closure, 1); //retry once
     }
 
     /*

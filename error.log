@@ -448,3 +448,324 @@
 14/09/25 09:37:33.44 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
 14/09/25 09:37:33.44 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
 14/09/25 09:45:30.39 [info]: Cell_Server Delegate cell call
+14/09/27 08:03:08.75 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:03:08.76 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:03:09.58 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:03:09.59 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:03:09.59 [notice]: DbGen/Mongo Launching MongoDB with --pidfilepath /tmp/opaMongo.pid --noprealloc --bind_ip 0.0.0.0 --dbpath /home/vagrant/.opa/mongo/data --fork --logpath /home/vagrant/.opa/mongo/mongo.log
+14/09/27 08:03:09.60 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:03:09.60 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:03:09.60 [notice]: DbGen/Mongo Launching MongoDB with --pidfilepath /tmp/opaMongo.pid --noprealloc --bind_ip 0.0.0.0 --dbpath /home/vagrant/.opa/mongo/data --fork --logpath /home/vagrant/.opa/mongo/mongo.log
+14/09/27 08:03:09.83 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:03:09.84 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start ehvrtldrnxvfwsgt
+14/09/27 08:03:09.89 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:03:09.90 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start ljzuejvhzaxtoufy
+14/09/27 08:03:09.91 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 08:03:09.91 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished ljzuejvhzaxtoufy
+14/09/27 08:03:09.91 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 08:03:09.91 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 08:03:09.91 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 08:04:12.07 [error]: DbGen/Mongo (failure) Error while creating index [event_id] at [all]
+14/09/27 08:05:59.60 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:05:59.61 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:06:00.45 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:06:00.45 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:06:00.46 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:06:00.46 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:06:00.46 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:06:00.46 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:06:00.47 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start odetzsazhfmlhadi
+14/09/27 08:06:00.47 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start umiqymxxcjcctcdb
+14/09/27 08:06:00.49 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 08:06:00.49 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished odetzsazhfmlhadi
+14/09/27 08:06:00.49 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 08:06:00.49 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 08:06:00.49 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 08:06:00.49 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 08:06:00.49 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished umiqymxxcjcctcdb
+14/09/27 08:06:00.49 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 08:06:00.49 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 08:06:00.49 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 08:07:13.64 [info]: Cell_Server Delegate cell call
+14/09/27 08:11:06.13 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:11:06.13 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 08:11:06.98 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:11:06.98 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:11:06.98 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:11:06.99 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 08:11:06.99 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 08:11:06.99 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 08:11:06.99 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start suphymlekgbxlxpb
+14/09/27 08:11:07.00 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start utidinzyrkzuhqei
+14/09/27 08:11:07.01 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 08:11:07.01 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished suphymlekgbxlxpb
+14/09/27 08:11:07.01 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 08:11:07.01 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 08:11:07.01 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 08:11:07.02 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 08:11:07.02 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished utidinzyrkzuhqei
+14/09/27 08:11:07.02 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 08:11:07.02 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 08:11:07.02 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 08:33:36.10 [info]: Cell_Server Delegate cell call
+14/09/27 09:22:08.96 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 09:22:08.96 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 09:22:09.75 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 09:22:09.75 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 09:22:09.75 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 09:22:09.76 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 09:22:09.76 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 09:22:09.76 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 09:22:09.76 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start ljgbcppltmvawpdu
+14/09/27 09:22:09.77 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start mpbklhezvfockyot
+14/09/27 09:22:09.78 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 09:22:09.78 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished ljgbcppltmvawpdu
+14/09/27 09:22:09.78 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 09:22:09.78 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 09:22:09.78 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 09:22:09.79 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 09:22:09.79 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished mpbklhezvfockyot
+14/09/27 09:22:09.79 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 09:22:09.79 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 09:22:09.79 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 09:22:20.52 [info]: Cell_Server Delegate cell call
+14/09/27 09:26:28.08 [info]: Cell_Server Delegate cell call
+14/09/27 09:47:21.40 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 09:47:21.41 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 09:47:22.26 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 09:47:22.27 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 09:47:22.27 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 09:47:22.27 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 09:47:22.28 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 09:47:22.28 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 09:47:22.28 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start ufznoiukahtksqrk
+14/09/27 09:47:22.29 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start dzjxgjjbifqccfvi
+14/09/27 09:47:22.30 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 09:47:22.30 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished ufznoiukahtksqrk
+14/09/27 09:47:22.30 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 09:47:22.30 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 09:47:22.30 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 09:47:22.31 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 09:47:22.31 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished dzjxgjjbifqccfvi
+14/09/27 09:47:22.31 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 09:47:22.31 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 09:47:22.31 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 09:48:06.18 [info]: Cell_Server Delegate cell call
+14/09/27 10:35:28.99 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:35:28.99 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:35:29.82 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:35:29.82 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:35:29.83 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:35:29.83 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:35:29.83 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:35:29.83 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:35:29.84 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start etbajhrzwxboakar
+14/09/27 10:35:29.84 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start hvzrpqweacggynml
+14/09/27 10:35:29.85 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 10:35:29.86 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished etbajhrzwxboakar
+14/09/27 10:35:29.86 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:35:29.86 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:35:29.86 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:35:29.86 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 10:35:29.86 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished hvzrpqweacggynml
+14/09/27 10:35:29.86 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:35:29.86 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:35:29.86 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:36:09.51 [error]: CHANNEL Local channel(rgvsahygisvkxbsdmtkzBO) not found
+14/09/27 10:36:09.51 [error]: OPARPC extract_values -> Value doesn't match given ty
+14/09/27 10:36:09.51 [error]: OpaRPC RPC(__execute_stdlib.core.web.context) Bad formatted request
+14/09/27 10:36:12.60 [error]: CHANNEL Local channel(rgvsahygisvkxbsdmtkzBO) not found
+14/09/27 10:36:12.60 [error]: OPARPC extract_values -> Value doesn't match given ty
+14/09/27 10:36:12.60 [error]: OpaRPC RPC(__execute_stdlib.core.web.context) Bad formatted request
+14/09/27 10:36:14.46 [info]: Cell_Server Delegate cell call
+14/09/27 10:38:17.62 [info]: Cell_Server Delegate cell call
+14/09/27 10:39:36.20 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:39:36.20 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:39:37.00 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:39:37.01 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:39:37.01 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:39:37.01 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:39:37.01 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:39:37.01 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:39:37.02 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start jimkgyhyzqlufzyz
+14/09/27 10:39:37.02 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start vydmhxwymjatecqq
+14/09/27 10:39:37.04 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 10:39:37.04 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished jimkgyhyzqlufzyz
+14/09/27 10:39:37.04 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:39:37.04 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:39:37.04 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:39:37.04 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 10:39:37.04 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished vydmhxwymjatecqq
+14/09/27 10:39:37.04 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:39:37.04 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:39:37.04 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:39:52.49 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:39:52.49 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:39:53.29 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:39:53.30 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:39:53.30 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:39:53.30 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:39:53.30 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:39:53.30 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:39:53.31 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start vswkckwyipvusqpn
+14/09/27 10:39:53.31 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start bohsbejvjzbpwcgl
+14/09/27 10:39:53.33 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 10:39:53.33 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished vswkckwyipvusqpn
+14/09/27 10:39:53.33 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:39:53.33 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:39:53.33 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:39:53.33 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 10:39:53.33 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished bohsbejvjzbpwcgl
+14/09/27 10:39:53.33 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:39:53.33 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:39:53.33 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:40:02.46 [info]: Cell_Server Delegate cell call
+14/09/27 10:43:13.96 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:43:13.96 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 10:43:14.76 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:43:14.77 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:43:14.77 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:43:14.78 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 10:43:14.78 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 10:43:14.78 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 10:43:14.78 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start rubgypjjlepjhlpf
+14/09/27 10:43:14.79 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start ihgsfxmxfwjgqrmd
+14/09/27 10:43:14.80 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 10:43:14.80 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished rubgypjjlepjhlpf
+14/09/27 10:43:14.80 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:43:14.80 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:43:14.80 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:43:14.81 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 10:43:14.81 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished ihgsfxmxfwjgqrmd
+14/09/27 10:43:14.81 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 10:43:14.81 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 10:43:14.81 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 10:43:32.02 [info]: Cell_Server Delegate cell call
+14/09/27 10:44:03.90 [info]: Cell_Server Delegate cell call
+14/09/27 10:45:14.03 [info]: Cell_Server Delegate cell call
+14/09/27 10:45:14.04 [error]: OpaRpc Wrong client try to RPC reply
+14/09/27 11:50:23.76 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 11:50:23.77 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 11:50:24.57 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 11:50:24.57 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 11:50:24.57 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 11:50:24.57 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 11:50:24.58 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 11:50:24.58 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 11:50:24.58 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start waeyntefctpqidyp
+14/09/27 11:50:24.59 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start upvufehposagllmu
+14/09/27 11:50:24.61 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 11:50:24.61 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished waeyntefctpqidyp
+14/09/27 11:50:24.61 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 11:50:24.61 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 11:50:24.61 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 11:50:24.61 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 11:50:24.61 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished upvufehposagllmu
+14/09/27 11:50:24.61 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 11:50:24.61 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 11:50:24.62 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 11:50:50.58 [info]: Cell_Server Delegate cell call
+14/09/27 11:53:14.87 [info]: Cell_Server Delegate cell call
+14/09/27 11:53:55.73 [info]: Cell_Server Delegate cell call
+14/09/27 11:55:48.51 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 11:55:48.51 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 11:55:49.35 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 11:55:49.35 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 11:55:49.35 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 11:55:49.35 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 11:55:49.36 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 11:55:49.36 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 11:55:49.36 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start glrqylkvoldnynez
+14/09/27 11:55:49.37 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start kpfxqsgntcgekxjw
+14/09/27 11:55:49.38 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 11:55:49.38 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished glrqylkvoldnynez
+14/09/27 11:55:49.38 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 11:55:49.38 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 11:55:49.38 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 11:55:49.38 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 11:55:49.39 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished kpfxqsgntcgekxjw
+14/09/27 11:55:49.39 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 11:55:49.39 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 11:55:49.39 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 12:18:21.79 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 12:18:21.79 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 12:18:22.65 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 12:18:22.65 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 12:18:22.66 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 12:18:22.66 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 12:18:22.66 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 12:18:22.66 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 12:18:22.66 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start oaelxxtxdnywpubt
+14/09/27 12:18:22.67 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start oqiomaciiupfcpbz
+14/09/27 12:18:22.68 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 12:18:22.68 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished oaelxxtxdnywpubt
+14/09/27 12:18:22.68 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 12:18:22.68 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 12:18:22.68 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 12:18:22.69 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 12:18:22.69 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished oqiomaciiupfcpbz
+14/09/27 12:18:22.69 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 12:18:22.69 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 12:18:22.69 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 12:18:45.15 [info]: Cell_Server Delegate cell call
+14/09/27 13:13:39.74 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 13:13:39.74 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 13:13:40.59 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 13:13:40.59 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 13:13:40.59 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 13:13:40.59 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 13:13:40.59 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 13:13:40.60 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 13:13:40.61 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start qzseehkrhtuqbawp
+14/09/27 13:13:40.62 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start hxrmxyrujnyyiprq
+14/09/27 13:13:40.63 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 13:13:40.63 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished qzseehkrhtuqbawp
+14/09/27 13:13:40.63 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 13:13:40.63 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 13:13:40.64 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 13:13:40.64 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 13:13:40.64 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished hxrmxyrujnyyiprq
+14/09/27 13:13:40.64 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 13:13:40.64 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 13:13:40.64 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 13:14:14.09 [info]: Cell_Server Delegate cell call
+14/09/27 14:02:30.05 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 14:02:30.05 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 14:02:30.87 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 14:02:30.87 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 14:02:30.87 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 14:02:30.87 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 14:02:30.87 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 14:02:30.88 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 14:02:30.88 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start hmsfbkydqlithtlh
+14/09/27 14:02:30.89 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start soenoturaaksifxz
+14/09/27 14:02:30.90 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 14:02:30.90 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished hmsfbkydqlithtlh
+14/09/27 14:02:30.90 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 14:02:30.90 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 14:02:30.90 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 14:02:30.90 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 14:02:30.90 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished soenoturaaksifxz
+14/09/27 14:02:30.91 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 14:02:30.91 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 14:02:30.91 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 14:02:45.28 [info]: users DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 14:02:45.28 [info]: events DbGen/Mongo/SynchroStart Sync op on db syncops list
+14/09/27 14:02:46.08 [info]: events DbGen/Mongo/SynchroStart Opening database
+14/09/27 14:02:46.08 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 14:02:46.08 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 14:02:46.09 [info]: users DbGen/Mongo/SynchroStart Opening database
+14/09/27 14:02:46.09 [notice]: DbGen/Mongo Looking for MongoDB in directory '/home/vagrant/.opa/mongo'
+14/09/27 14:02:46.09 [notice]: DbGen/Mongo MongoDB seems launched (pid:1580)
+14/09/27 14:02:46.09 [info]: events DbGen/Mongo/SynchroStart Processing sync op 0, start gehvtxhsjycrdzrq
+14/09/27 14:02:46.10 [info]: users DbGen/Mongo/SynchroStart Processing sync op 0, start inejgipfqagbiklk
+14/09/27 14:02:46.11 [notice]: DbGen/Mongo (success) Index [event_id] at [all] has been created
+14/09/27 14:02:46.11 [info]: events DbGen/Mongo/SynchroStart Processing sync op, finished gehvtxhsjycrdzrq
+14/09/27 14:02:46.11 [info]: events DbGen/Mongo/SynchroStart Db is ready
+14/09/27 14:02:46.11 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 14:02:46.11 [info]: events DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished
+14/09/27 14:02:46.12 [notice]: DbGen/Mongo (success) Index [user] at [all] has been created
+14/09/27 14:02:46.12 [info]: users DbGen/Mongo/SynchroStart Processing sync op, finished inejgipfqagbiklk
+14/09/27 14:02:46.12 [info]: users DbGen/Mongo/SynchroStart Db is ready
+14/09/27 14:02:46.12 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, start
+14/09/27 14:02:46.12 [info]: users DbGen/Mongo/SynchroStart Process 0 operations on the db wait list, finished

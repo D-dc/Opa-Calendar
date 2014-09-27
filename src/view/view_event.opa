@@ -23,7 +23,10 @@ client module ViewEvent{
 
             match(Date.of_formatted_string(Date.generate_scanner("%d/%m/%Y %R"), meetingDate)){//%A %B %d %Y %R
                 case {none}: 
-                    View.alert("Unable to interpret date", "error", false);
+                    
+                    //temporarily failure handling
+                    Failure.direct_inform("Unable to interpret date");
+
                 case {some: event_date}:
                     evt event={event_id: 0, ~event_name, ~event_description, ~event_date, user:{user_name:"dummy"}, event_place: {unverified_string: meetingPlace}, clock:1};
       		        match(Event.addMeeting(event)){
@@ -35,8 +38,9 @@ client module ViewEvent{
                             
                             View.alert("Meeting '{event_name}' has been created!", "success", true);
                             
-                        case {failure: msg}: 
-                            View.alert("Meeting '{event_name}' could not be created: {msg}", "error", false);
+                        case {failure: msg}:
+                            //temporarily failure handling
+                            Failure.direct_inform("Meeting '{event_name}' could not be created: {msg}"); 
                     }
 
             }
@@ -49,6 +53,7 @@ client module ViewEvent{
         We take the form data, perfom the action and inform the client of the result.
     */
 	function editMeeting(int event_id, int clock, user){
+        
 		//gather form data, perform action & inform
 		Helper.required(#meeting_edit_date, "Please make sure the date is filled in", function(meetingDate){
 
@@ -59,14 +64,20 @@ client module ViewEvent{
 
             match(Date.of_formatted_string(Date.generate_scanner("%d/%m/%Y %R"), meetingDate)){
                 case {none}: 
-                    View.alert("Unable to interpret date", "error", false);
+                    
+                    //temporarily failure handling
+                    Failure.direct_inform("Unable to interpret date");
                 case {some: event_date}:
                     evt event={~event_id, ~event_name, ~event_description, ~event_date, ~user, event_place: {unverified_string: meetingPlace}, ~clock}
                     match(Event.editMeeting(event)){
                         case {success}: 
-                            View.alert("Meeting '{event_name}' has been modified.", "success", true);  
+                            View.alert("Meeting '{event_name}' has been modified.", "success", true);
+                            
                         case {failure: msg}: 
-                            View.alert("Unable to modify meeting: {msg}", "error", false);
+                           
+                            //temporarily failure handling
+                            Failure.direct_inform("Unable to modify meeting: {msg}");
+                            
                     }
             }
             hideMeetingViews();        
@@ -90,13 +101,20 @@ client module ViewEvent{
         Delete a selected event and inform the user of the result
     */
     function deleteEvent(evt event){
-        match(Event.deleteMeeting(event)){
-            case {success: _}: 
-                hideMeetingViews();
-                View.alert("Event '{event.event_name}' has been deleted.", "success", true)
-            case {failure: msg}: 
-                View.alert("Could not delete event: {msg}", "error", false)
+        
+        closure=function(){
+            match(Event.deleteMeeting(event)){
+                case {success: _}: 
+                    hideMeetingViews();
+                    View.alert("Event '{event.event_name}' has been deleted.", "success", true);
+                    {success}; //! needed for retry
+                case {failure: msg}:
+                    {failure: msg}; //! needed for retry
+            }
         }
+
+        //temporarily failure handling
+        Failure.retry_on_failure(closure, 1);
     }
 
     /*
@@ -154,12 +172,12 @@ client module ViewEvent{
                                ViewEvent.deleteEvent(evnt);
                                Dom.unbind_event(#remove_button, {click}) //remove previous binding when editing multiple events
                             }}>
-                            <i class="icon-remove" />
+                            DELETE<i class="icon-remove" />
                         </a>
                         <a href="#" class="btn btn-mini pull-right" onclick={function(_){
                             LoadMeetingData(evnt);
                           }}>   
-	                       <i class="icon-pencil" />
+	                       EDIT<i class="icon-pencil" />
                         </a>
 	                </div>
 	             </div>

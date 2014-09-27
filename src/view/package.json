@@ -1,1 +1,1 @@
-{"name":"link","version":"1.2.0","main":"helper.js","dependencies":{"opabsl.opp":"1.2.0","opa-js-runtime-cps":"1.2.0","calendar.controller.opx":"1.2.0"}}
+{"name":"link","version":"1.2.0","main":"failure.js","dependencies":{"opabsl.opp":"1.2.0","opa-js-runtime-cps":"1.2.0","calendar.controller.opx":"1.2.0"}}

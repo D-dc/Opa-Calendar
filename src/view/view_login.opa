@@ -25,7 +25,8 @@ module ViewLogin {
 					
 				case {failure: msg}: 
 					
-					View.alert("No login: {msg}", "error", false)
+					//temporarily failure handling
+					Failure.direct_inform(msg);
 			}
 		});
 	}
@@ -43,7 +44,8 @@ module ViewLogin {
 
 				case {failure: msg}:
 					
-					View.alert("No registration: {msg}", "error", false)
+					//temporarily failure handling
+					Failure.direct_inform(msg);
 			}
 		});
 	}

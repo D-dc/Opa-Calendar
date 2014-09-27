@@ -14,34 +14,39 @@ client module ClientEvents{
     /*
        Add an event local
     */
-    function addEvent(evt Event){
+    function outcome(void, string) addEvent(evt Event){
         Local.addNew(Event, Event.event_id);//save using on position 'event_id'
-        highlightOnCalendar(Event.event_date)
+        highlightOnCalendar(Event.event_date);
+        {success}
     }
 
     /*
         Delete an event local
     */
-    function deleteEvent(evt Event){
-        //get the local data
-        match(Local.getStorageDataById(Event.event_id)){
+    function outcome(void, string) deleteEvent(evt Event){
+
+        match(Local.getStorageDataById(Event.event_id)){//get the local data
             case ~{success: oldData}:
                 //since we delete the evend there is no point at keeping it highlighted on the calendar 
                 unHighlightOnCalendar(oldData.event_date);
+
+                //do the actual delete
+                Local.deleteById(Event.event_id)//delete on position 'event_id'
+                //maybe rehighlight the event date since there could be another event on that date
+                meetingOnDay(Event.event_date)
+
+                {success};
             case {failure}: 
-                void    
-        }
-        
-        //do the actual delete
-        Local.deleteById(Event.event_id)//delete on position 'event_id'
-        //maybe rehighlight the event date since there could be another event on that date
-        meetingOnDay(Event.event_date)
+                {failure: "delete local failed"}
+                //void    
+                
+        }  
     }
 
     /*
         Update/edit an event local 
     */
-    function updateEvent(evt updatedEvent, viaConflict){
+    function outcome(void, string) updateEvent(evt updatedEvent, viaConflict){
         //get local data
         match(Local.getStorageDataById(updatedEvent.event_id)){
             case ~{success: localData}: 
@@ -59,11 +64,14 @@ client module ClientEvents{
                     meetingOnDay(localData.event_date)
                     //highlight the new date of the event after the reschedule
                     highlightOnCalendar(updatedEvent.event_date);
+                    {success};
+                }else{
+                    {failure: "update ignored"}
                 }
                
             case {failure}:
                 //we got an update for an event that does not exists locally, cornercase which can occur between two syncs -> ignore
-                void    
+                {failure: "unknown event update ignored"}    
         } 
     }
 

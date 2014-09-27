@@ -104,7 +104,7 @@ client module combine{
                 function maybeAdd(evt serverEvent){
                     match(ClientEvents.localEventData(serverEvent)){
                         case {success: _}:
-                            Logging.print("Already present");
+                            Logging.print("Already there");
                             void;
                         case {failure: _}:
                             Logging.print("ADDED")
@@ -157,7 +157,7 @@ client module combine{
                         
                                 //server has a newer version of a particular event => update local version
                                 ClientEvents.updateEvent(dbEvent, false)//update DB event in local memory
-
+                                void;
                             }else if(dbEvent.clock == Util.abs(localEvnt.clock)){ 
 
                                 //client has a newer version & server version is still untouched => update server
@@ -175,6 +175,7 @@ client module combine{
                             }else{
 
                                 ClientEvents.updateEvent(dbEvent, true)
+                                void;
 
                             }
                         }else{
