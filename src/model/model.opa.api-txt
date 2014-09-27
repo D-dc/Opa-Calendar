@@ -1,0 +1,39 @@
+type User.logginType = {guest} / {userType : usr.n}
+
+type usr.n = {user_name : string} / {offline}
+
+type usr = {user : usr.n; user_pwd : string}
+
+type geo.loc = {lat : float; lon : float}
+
+type geo.code = {loc : geo.loc; formatted_address : string}
+
+type place = {unverified_string : string} / {geo_place : geo.code} / {none}
+
+type evt =
+  {event_id : int;
+    event_name : string;
+    event_description : string;
+    event_date : Date.date;
+    user : usr.n;
+    event_place : place;
+    clock : int}
+
+type localData = {data : evt; next : int}
+
+type startPointer = {first_element : int}
+
+type action = {new} / {update} / {remove}
+
+type actionEvent = {action : action; event : evt}
+
+@private Logging.logging : bool
+
+Logging.print : string -> {}
+
+Logging : {print : string -> {}}
+
+combine.combine :  -> void
+
+combine : {combine :  -> void}
+

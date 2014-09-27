@@ -1,0 +1,52 @@
+GeoCode.URL : {credentials : Uri.uri_credentials;
+                domain : string;
+                fragment : option(string);
+                is_directory : bool;
+                path : {hd : string; tl : list(string)} / ...;
+                port : option(int);
+                query : list(tuple_2(string, string));
+                schema : {some : string} / ...}
+
+GeoCode.callback : {success : WebClient.success(string)} / {failure : 'v0} ->
+                     string
+
+GeoCode.to_GeoCode_async : string,
+                             (outcome({loc : {lat : float; lon : float} / ...;
+                                        formatted_address : string},
+                                {}) -> void) ->
+                             void
+
+GeoCode.to_GeoCode_sync : string ->
+                            {failure} /
+                              {success : {loc : {lat : float; lon : float} /
+                                                  ...;
+                                           formatted_address : string}}
+                              / ...
+
+GeoCode : {URL : forall(, rows:, cols:..., ...).
+                   {credentials : Uri.uri_credentials;
+                     domain : string;
+                     fragment : option(string);
+                     is_directory : bool;
+                     path : {hd : string; tl : list(string)} / ...;
+                     port : option(int);
+                     query : list(tuple_2(string, string));
+                     schema : {some : string} / ...};
+            to_GeoCode_async : forall(, rows:, cols:...).
+                                 string,
+                                   (outcome({loc : {lat : float; lon : float}
+                                                     / ...;
+                                              formatted_address : string},
+                                      {}) -> void) ->
+                                   void;
+            to_GeoCode_sync : forall(, rows:, cols:..., ...).
+                                string ->
+                                  {failure} /
+                                    {success : {loc : {lat : float;
+                                                      lon : float} / ...;
+                                                 formatted_address : string}}
+                                    / ...;
+            callback : forall('v0).
+                         {success : WebClient.success(string)} /
+                           {failure : 'v0} -> string}
+

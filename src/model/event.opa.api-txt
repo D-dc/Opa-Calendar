@@ -1,0 +1,68 @@
+@private Event.room : Network.network(actionEvent)
+
+Event.broadcast : evt, action -> void
+
+Event.broadcast_calendar_handler : actionEvent -> void
+
+Event.register_evt_callback :  -> void
+
+Event.serverConfirmAndBroadcast : ('v0 -> {failure : 'v1} / {success : evt}),
+                                    'v0, action, 'v2 ->
+                                    {failure : 'v2} / {success} / ...
+
+Event.addMeeting : evt -> {failure : string} / {success} / ...
+
+Event.editMeeting : evt -> outcome({}, string)
+
+Event.dataMeeting :  -> ((evt -> void) -> void)
+
+Event.deleteMeeting : evt -> outcome({}, string)
+
+Event : {broadcast : evt, action -> void;
+          broadcast_calendar_handler : actionEvent -> void;
+          register_evt_callback :  -> void;
+          serverConfirmAndBroadcast : forall('v0, 'v1, 'v2, rows:, cols:...).
+                                        ('v0 ->
+                                           {failure : 'v1} / {success : evt}),
+                                          'v0, action, 'v2 ->
+                                          {failure : 'v2} / {success} / ...;
+          addMeeting : forall(, rows:, cols:...).
+                         evt -> {failure : string} / {success} / ...;
+          editMeeting : evt -> outcome({}, string);
+          dataMeeting :  -> ((evt -> void) -> void);
+          deleteMeeting : evt -> outcome({}, string)}
+
+@private Event.room : Network.network(actionEvent)
+
+Event.broadcast : evt, action -> void
+
+Event.broadcast_calendar_handler : actionEvent -> void
+
+Event.register_evt_callback :  -> void
+
+Event.serverConfirmAndBroadcast : ('v0 -> {failure : 'v1} / {success : evt}),
+                                    'v0, action, 'v2 ->
+                                    {failure : 'v2} / {success} / ...
+
+Event.addMeeting : evt -> {failure : string} / {success} / ...
+
+Event.editMeeting : evt -> outcome({}, string)
+
+Event.dataMeeting :  -> ((evt -> void) -> void)
+
+Event.deleteMeeting : evt -> outcome({}, string)
+
+Event : {broadcast : evt, action -> void;
+          broadcast_calendar_handler : actionEvent -> void;
+          register_evt_callback :  -> void;
+          serverConfirmAndBroadcast : forall('v0, 'v1, 'v2, rows:, cols:...).
+                                        ('v0 ->
+                                           {failure : 'v1} / {success : evt}),
+                                          'v0, action, 'v2 ->
+                                          {failure : 'v2} / {success} / ...;
+          addMeeting : forall(, rows:, cols:...).
+                         evt -> {failure : string} / {success} / ...;
+          editMeeting : evt -> outcome({}, string);
+          dataMeeting :  -> ((evt -> void) -> void);
+          deleteMeeting : evt -> outcome({}, string)}
+

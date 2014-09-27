@@ -1,0 +1,7 @@
+pass_Welcome
+pass_CheckOptions
+pass_AddStdlibFiles
+pass_OpenFiles
+pass_PreProcess
+pass_Parse
+pass_PluginCompilation

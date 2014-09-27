@@ -1,0 +1,9 @@
+// Checking keys resolution.
+// File used by the jschecker only
+var _check_definition_of_html5_functions_checkonline = global.Html5_functions_checkOnline
+var _check_definition_of_html5_functions_clearstorage = global.Html5_functions_clearStorage
+var _check_definition_of_html5_functions_getstorageint = global.Html5_functions_getStorageInt
+var _check_definition_of_html5_functions_getstoragestring = global.Html5_functions_getStorageString
+var _check_definition_of_html5_functions_removestoragekey = global.Html5_functions_removeStorageKey
+var _check_definition_of_html5_functions_setstorageint = global.Html5_functions_setStorageInt
+var _check_definition_of_html5_functions_setstoragestring = global.Html5_functions_setStorageString

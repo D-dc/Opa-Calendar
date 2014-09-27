@@ -1,0 +1,1 @@
+{"name":"calendar.controller.opx","version":"1.2.0","main":"main.js","dependencies":{"opabsl.opp":"1.2.0","opa-js-runtime-cps":"1.2.0","calendar.view.opx":"1.2.0"}}

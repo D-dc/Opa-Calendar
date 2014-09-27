@@ -1,0 +1,36 @@
+Local.localStorageExists : int -> bool
+
+@private Local.pointerPosition : int
+
+@private Local.serializedSave : 'v0, int -> {}
+
+@private Local.saveNewNext : evt, int, int -> {}
+
+@private Local.getStartPosition :  -> {failure} / {success : int} / ...
+
+Local.addNew : evt, int -> {}
+
+@private Local.unserialize : int -> {failure} / {success : localData} / ...
+
+@private Local.getDataById : int -> {failure} / {success : localData} / ...
+
+@private Local.loopLocalspace : int, (int, localData -> void) -> void
+
+@private Local.save : localData, int -> {}
+
+Local.deleteById : int -> void
+
+Local.updateById : evt, int -> void
+
+Local.loopLocal : (evt -> void) -> void
+
+Local.getStorageDataById : int -> {success : evt} / {failure} / ...
+
+Local : {localStorageExists : int -> bool;
+          addNew : evt, int -> {};
+          deleteById : int -> void;
+          updateById : evt, int -> void;
+          loopLocal : (evt -> void) -> void;
+          getStorageDataById : forall(, rows:, cols:...).
+                                 int -> {success : evt} / {failure} / ...}
+

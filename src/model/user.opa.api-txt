@@ -1,0 +1,16 @@
+User.registerUser : string, string -> outcome({}, string)
+
+@private User.logginType : UserContext.t(User.logginType)
+
+User.loginUser : string, string -> {failure : string} / {success} / ...
+
+User.loginType :  -> User.logginType
+
+User.logout : 'v0 -> void
+
+User : {registerUser : string, string -> outcome({}, string);
+         loginUser : forall(, rows:, cols:...).
+                       string, string -> {failure : string} / {success} / ...;
+         loginType :  -> User.logginType;
+         logout : forall('v0). 'v0 -> void}
+

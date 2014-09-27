@@ -1,0 +1,10 @@
+ViewLogin.do_login :  -> void
+
+ViewLogin.do_registration :  -> void
+
+ViewLogin.login_screen :  -> resource
+
+ViewLogin : {do_login :  -> void;
+              do_registration :  -> void;
+              login_screen :  -> resource}
+

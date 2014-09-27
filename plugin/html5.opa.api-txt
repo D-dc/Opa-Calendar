@@ -1,0 +1,25 @@
+HTML5.getStorageInt : string -> int
+
+HTML5.getStorageString : string -> string
+
+HTML5.setStorageString : string, string -> {}
+
+HTML5.setStorageInt : string, int -> {}
+
+HTML5.clearStorage :  -> {}
+
+HTML5.removeStorageKey : string -> {}
+
+HTML5.localStorageExists : string -> bool
+
+HTML5.checkOnline :  -> bool
+
+HTML5 : {getStorageInt : string -> int;
+          getStorageString : string -> string;
+          setStorageString : string, string -> {};
+          setStorageInt : string, int -> {};
+          clearStorage :  -> {};
+          removeStorageKey : string -> {};
+          localStorageExists : string -> bool;
+          checkOnline :  -> bool}
+

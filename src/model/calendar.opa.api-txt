@@ -1,0 +1,13 @@
+Calendar.isLeap : int, int -> bool
+
+Calendar.month_days : Date.date -> int
+
+Calendar.toFirstOfMonth : Date.date -> Date.date
+
+Calendar.toFirstMondayOfCurrentWeek : Date.date -> Date.date
+
+Calendar : {isLeap : int, int -> bool;
+             month_days : Date.date -> int;
+             toFirstOfMonth : Date.date -> Date.date;
+             toFirstMondayOfCurrentWeek : Date.date -> Date.date}
+

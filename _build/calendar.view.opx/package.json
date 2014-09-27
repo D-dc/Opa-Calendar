@@ -1,0 +1,1 @@
+{"name":"calendar.view.opx","version":"1.2.0","main":"main.js","dependencies":{"stdlib.widgets.bootstrap.modal.opx":"1.2.0","stdlib.widgets.bootstrap.dropdown.opx":"1.2.0","stdlib.widgets.bootstrap.alert.opx":"1.2.0","stdlib.apis.gmaps.opx":"1.2.0","opabsl.opp":"1.2.0","opa-js-runtime-cps":"1.2.0","calendar.model.opx":"1.2.0"}}

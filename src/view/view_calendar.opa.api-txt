@@ -1,0 +1,33 @@
+@private ViewCalendar.calendarGenerate : Date.date -> xhtml
+
+ViewCalendar.calendar : Date.date -> void
+
+ViewCalendar.highlightMeetings :  -> void
+
+ViewCalendar.session_calendar_handler : {current_date : Date.date},
+                                          {stop} / {calendarnext} /
+                                            {calendarprev} / {calendarnow} /
+                                            ... ->
+                                          {unchanged} / {stop} /
+                                            {set : {current_date : Date.date}
+                                                     / ...}
+                                            / ...
+
+ViewCalendar.unhighlightMeetings :  -> void
+
+ViewCalendar.open_calendar :  -> void
+
+ViewCalendar : {session_calendar_handler : forall(, rows:, cols:..., ..., ...).
+                                             {current_date : Date.date},
+                                               {stop} / {calendarnext} /
+                                                 {calendarprev} /
+                                                 {calendarnow} / ... ->
+                                               {unchanged} / {stop} /
+                                                 {set : {current_date : Date.date}
+                                                          / ...}
+                                                 / ...;
+                 calendar : Date.date -> void;
+                 unhighlightMeetings :  -> void;
+                 highlightMeetings :  -> void;
+                 open_calendar :  -> void}
+

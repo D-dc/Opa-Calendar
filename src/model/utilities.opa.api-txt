@@ -1,0 +1,13 @@
+Util.abs : int -> int
+
+Util.negative : int -> bool
+
+Util.positive : int -> bool
+
+Util.zero : int -> bool
+
+Util : {abs : int -> int;
+         negative : int -> bool;
+         positive : int -> bool;
+         zero : int -> bool}
+

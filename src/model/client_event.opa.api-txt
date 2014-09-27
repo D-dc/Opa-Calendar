@@ -1,0 +1,28 @@
+ClientEvents.highlightOnCalendar : Date.date -> void
+
+ClientEvents.addEvent : evt -> void
+
+ClientEvents.unHighlightOnCalendar : Date.date -> void
+
+ClientEvents.localEvents : (evt -> void) -> void
+
+ClientEvents.meetingOnDay : Date.date -> void
+
+ClientEvents.deleteEvent : evt -> void
+
+ClientEvents.updateEvent : evt, bool -> void
+
+ClientEvents.NewLocalId :  -> int
+
+ClientEvents.localEventData : evt -> outcome(evt, string)
+
+ClientEvents : {addEvent : evt -> void;
+                 deleteEvent : evt -> void;
+                 updateEvent : evt, bool -> void;
+                 meetingOnDay : Date.date -> void;
+                 highlightOnCalendar : Date.date -> void;
+                 unHighlightOnCalendar : Date.date -> void;
+                 localEvents : (evt -> void) -> void;
+                 NewLocalId :  -> int;
+                 localEventData : evt -> outcome(evt, string)}
+

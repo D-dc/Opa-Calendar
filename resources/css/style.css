@@ -1,0 +1,28 @@
+
+#service, #sync, #pref {
+	margin-top:10px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.cell{
+	font-size:22px;
+	background-color:#FFF;
+	padding:10px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.cell:hover{
+	background-color:#EFEFEF;
+	cursor:pointer;
+}
+.cell b{
+	padding:10px;
+}
+
+.otherMonth{
+	color:#bfbfbf;
+}

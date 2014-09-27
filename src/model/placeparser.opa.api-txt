@@ -1,0 +1,49 @@
+PlaceParser.`xmlns:` : string
+
+PlaceParser.unused_comp : XmlParser.t(void, 'v0, 'v1)
+
+PlaceParser.geometry_comp : XmlParser.t({lat : float; lon : float} / ...,
+                              'v0, 'v1)
+
+PlaceParser.formatted_comp : XmlParser.t(string, 'v0, 'v1)
+
+PlaceParser.result_comp : XmlParser.t({loc : {lat : float; lon : float} / ...;
+                                      formatted_address : string} / ...,
+                            'v0, 'v1)
+
+PlaceParser.m_parser : XmlParser.t({loc : {lat : float; lon : float} / ...;
+                                   formatted_address : string} / ...,
+                         'v0, 'v1)
+
+PlaceParser.Parse : string ->
+                      {failure} /
+                        {success : {loc : {lat : float; lon : float} / ...;
+                                     formatted_address : string}}
+                        / ...
+
+PlaceParser : {xmlns: : string;
+                unused_comp : forall('v0, 'v1). XmlParser.t(void, 'v0, 'v1);
+                geometry_comp : forall('v0, 'v1, rows:, cols:...).
+                                  XmlParser.t({lat : float; lon : float} /
+                                                ...,
+                                    'v0, 'v1);
+                formatted_comp : forall('v0, 'v1).
+                                   XmlParser.t(string, 'v0, 'v1);
+                result_comp : forall('v0, 'v1, rows:, cols:..., ...).
+                                XmlParser.t({loc : {lat : float; lon : float}
+                                                     / ...;
+                                            formatted_address : string} / ...,
+                                  'v0, 'v1);
+                m_parser : forall('v0, 'v1, rows:, cols:..., ...).
+                             XmlParser.t({loc : {lat : float; lon : float} /
+                                                  ...;
+                                         formatted_address : string} / ...,
+                               'v0, 'v1);
+                Parse : forall(, rows:, cols:..., ...).
+                          string ->
+                            {failure} /
+                              {success : {loc : {lat : float; lon : float} /
+                                                  ...;
+                                           formatted_address : string}}
+                              / ...}
+
