@@ -36,9 +36,8 @@ client module ClientEvents{
                 meetingOnDay(Event.event_date)
 
                 {success};
-            case {failure}: 
-                {failure: "delete local failed"}
-                //void    
+            case ~{failure: msg}: 
+                Failure.prop({failure: msg}, "delete local failed"); 
                 
         }  
     }
@@ -69,9 +68,9 @@ client module ClientEvents{
                     {failure: "update ignored"}
                 }
                
-            case {failure}:
+            case {failure: msg}:
                 //we got an update for an event that does not exists locally, cornercase which can occur between two syncs -> ignore
-                {failure: "unknown event update ignored"}    
+                Failure.prop({failure: msg}, "unknown event update ignored");   
         } 
     }
 
@@ -148,10 +147,9 @@ client module ClientEvents{
 
                 {success: oldData}
 
-            case {failure}:
-                //There is no local storage for the given id
-                {failure: "local storage does not exists."}   
-
+            case {failure: msg}:
+                //There is no local storage for the given id  
+                Failure.prop({failure: msg}, "local storage does not exists.");
         }
     }
 }  

@@ -1,8 +1,0 @@
-static_include_resource : Resource.resource
-
-Controller.dispatcher : Uri.relative -> resource
-
-Controller : {dispatcher : Uri.relative -> resource}
-
-resources : ordered_map(string, Resource.resource, String.order)
-

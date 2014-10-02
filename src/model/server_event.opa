@@ -10,35 +10,51 @@
 module ServerEvents {
 
     /*
-        Look up the exact place
+        Look up the exact location of a place.
+        This code is asynchronous and will send a broadcast to the clients once
+        the actual place information is found, so that they have the correct information.
     */
-    private function place PlaceTransformer(string place){
+    @async private function void PlaceTransformerAsync(evt event){
         //Remember: type place = {string unverified_string} or {geo.code geo_place} or {none}
-        if(String.is_empty(place)){
-            //no place information was given
-            {none}
-        }else{
 
-            match(GeoCode.to_GeoCode_sync(place)){
-                case {failure}: //geocode not found
+        event_place = 
+            match(event.event_place){
+                case ~{unverified_string: pl_st}:
+                    if(String.is_empty(pl_st)){
+                        //no place information was given
+                        {none}
+                    }else{
 
-                    Logging.print("geo failed")
-                    {unverified_string: place};
-                case ~{success}: //geocode found
+                        match(GeoCode.to_GeoCode_sync(event.event_place)){
+                            case ~{failure: msg}: //geocode not found or failed
+                                Failure.graceful_inform(msg);
+                                {unverified_string: pl_st};
+                            case ~{success}: //geocode found
 
-                    Logging.print("geo succeed")
-                    {geo_place: success} //is of the type 'geo.code'
-            }
-        }    
+                                {geo_place: success} //is of the type 'geo.code'
+                        }
+                    }
+                default: {none}
+            } 
+
+        match(event_place){
+            case ~{geo_place}:
+                evt e = {event with ~event_place}
+                /events/all[{event_id:e.event_id}] <- e; 
+                Event.broadcast(e, {update});
+                void;
+            default: void;
+        }   
     }
+
 
     /*
         Count the tuples from a database path
     */
     private function countTuples(path){
-        int number = Iter.count(DbSet.iterator(path))
-        number
+        Iter.count(DbSet.iterator(path))
     }
+
 
     /*
         Ask for a new primary key
@@ -56,6 +72,7 @@ module ServerEvents {
         newId.get()+1;
     }
 
+
     /*
         Loop over all tuples in a database path, using function f
     */
@@ -69,7 +86,8 @@ module ServerEvents {
         }  
         void
     }
-    
+  
+
     /*
         Entry point for looping over all events
     */
@@ -77,30 +95,24 @@ module ServerEvents {
         allRecords(f, /events/all);
     }
 
+
     /*
         Entry point for adding an event tot the database
     */
     exposed function outcome(evt, string) addEvent(evt Event){
-        //we make some improvements to the existing object
         event_id = newPrimaryKey();
-
-        event_place = 
-            match(Event.event_place){
-                case ~{unverified_string: pl_st}:
-                    PlaceTransformer(pl_st);
-                default: {none}
-            } 
-
-        evt e = {Event with ~event_id, ~event_place}
+        evt e = {Event with ~event_id}
     
         match (?/events/all[{~event_id}]) {
             case {none}: 
                 /events/all[{~event_id}] <- e; //the actual save
+                PlaceTransformerAsync(e);
                 {success: e}//return the improved object
             case {some: _}: 
                 {failure: "no primary key found"}
         }
     }
+
 
     /*
         Checks if a specific event exists in the database, if it exists it is returned in the success outcome
@@ -108,35 +120,27 @@ module ServerEvents {
     private function outcome(evt, string) eventExists(evt e){
         match (?/events/all[{event_id: e.event_id}]) {
             case {none}: 
-                {failure: "not found"}
+                {failure: "entry not found"}
             case {some: evnt}:  
                 {success: evnt}
         }
     }
 
+
     /*
         Entry point for editing or updating an event from the database
     */
     exposed function outcome editEvent(evt e){
-        //we make some improvements to the existing object
-
-        event_place = 
-            match(e.event_place){
-                case ~{unverified_string: pl_st}:
-                    PlaceTransformer(pl_st);
-                default: {none}
-            }
-
-        evt e = {e with ~event_place} 
-
         match(eventExists(e)){
             case {success: _}: 
                 /events/all[{event_id:e.event_id}] <- e;
+                PlaceTransformerAsync(e);
                 {success: e}  //return the improved event
             case {failure: msg}: 
                 {failure: msg};
         }
     }
+
 
     /*
         Entry point for removing an event from the database
@@ -151,6 +155,7 @@ module ServerEvents {
         }
     }
 
+
     /*
         Entry point to get the server equivalent of a given event
     */
@@ -164,15 +169,14 @@ module ServerEvents {
         }
     }
 
+
     /*
         Check if there is an event on a specific date.
     */
     function bool eventOnDate(Date.date d){
         dbset(evt, _) e= /events/all[event_date >= Date.round_to_day(d) and event_date < Date.advance_by_days(Date.round_to_day(d), 1)]
         iter it = DbSet.iterator(e)
-
         (Iter.count(it)==0);
-
     }
 
 }

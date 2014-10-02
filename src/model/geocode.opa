@@ -13,8 +13,8 @@ module GeoCode{
 	URL = { 
 			Uri.default_absolute with
 			schema : {some: "http"},
-			domain:"maps.googleapis.com",
-			path: ["maps", "api", "geocode", "xml"],
+			domain:"caroes.be", // "maps.googleapis.com",
+			path: ["unreliable_server.php"], //["maps", "api", "geocode", "xml"],
 			is_directory: false
 		} 
 
@@ -22,39 +22,51 @@ module GeoCode{
 		Function takes a placename and returns an outcome containing either 'geo.return' or failure msg
 		(NON BLOCKING)
 	*/
-	function to_GeoCode_async(string place, ( outcome -> void ) f){
+	/*function to_GeoCode_async(string place, ( outcome -> void ) f){
 		location = Uri.of_absolute({URL with query:[("sensor", "true") , ("address", place)]}); //add the query parameters
 		Logging.print(Uri.to_string(location))
 		WebClient.Get.try_get_async(location, function(result){
-			f(PlaceParser.Parse(callback(result)));
+			f(callback(result));
 		});
-	}
+	}*/
 
 	/**
-		the synchronous equivalent of to_GeoCode_async (BLOCKING)
+		the synchronous equivalent of to_GeoCode_async (BLOCKING),
+		function is executed on server, so blocking is less of a problem
 	*/
-	function to_GeoCode_sync(string place){
-		location = Uri.of_absolute({URL with query:[("sensor", "true") , ("address", place)]}); //add the query parameters
-		Logging.print(Uri.to_string(location))
-		options = {WebClient.Get.default_options with timeout_sec: {some: 5.}}//set timeout to 5seconds instead of default 36seconds
-		PlaceParser.Parse(callback(WebClient.Get.try_get_with_options(location, options)));
+	function to_GeoCode_sync(place place){
+            
+        match(place){
+            case ~{unverified_string: place_name}:
+
+            	closure = function(){
+                    location = Uri.of_absolute({URL with query:[("sensor", "true") , ("address", place_name)]}); //add the query parameters
+					options = {WebClient.Get.default_options with timeout_sec: {some: 30.}}//set timeout to 30seconds instead of default 36seconds
+					
+					Log.notice("HTTP REQ: ", Uri.to_string(location));
+					callback(WebClient.Get.try_get_with_options(location, options));
+				};
+				Failure.retry(closure, 5);	
+            default: Failure.fail
+        }  
 	}
 			
 	/**
 		Callback function for async request
 	*/
-	function string callback(request_result){
+	function outcome('a, string) callback(request_result){
 		match(request_result){
-			case {failure: _}: 
-				Logging.print("no internet")
-				"no internet"
-			case {success: s}: 
+
+			case ~{success: s}: 
 				match (WebClient.Result.get_class(s)) {
-    				case {success}: s.content;
+    				case {success}:
+    					PlaceParser.Parse(s.content);
        				default: 
-       					Logging.print("failcode {s.content}")
-    	   				"fail code:{s.code}";
-        	}	
+       					Failure.prop(Failure.fail, "failcode {s.code}");
+        	}
+
+        	case ~{failure: f}: 
+				Failure.prop({failure: f}, "request failed");	
 		}
 	}
 }

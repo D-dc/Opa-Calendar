@@ -6,42 +6,49 @@
 // temporarily failure handling
 //
 
+//type Failure = {string msg}
+//type Either('a, 'b) = {'a Left} or {'b Right}
+
+	
 
 module Failure {
-	//TODO: make use of mutable Mutable.make(0); to be able to retry without
 
-	function retry_on_failure((-> outcome(void, string)) my_func, times){
+	fail = {failure: ""};
+	
 
-		match(my_func()){
-			case {success}:
-				{success};
+	function outcome('a, string) prop( outcome('a, 'b) original, string msg){
+		match(original){
+			case ~{failure: s1}: 
+				{failure: "{s1}, " + msg};
+			case ~{success: s}: 
+				{success: s};	
+		}
+	}
+
+	function retry((-> outcome('a, string)) closure, times){
+
+		match(closure()){
+			case ~{success: s}:
+				Log.notice("Succeeded", "");
+				{success: s};
 				
-			case {failure: msg}: 
+			case ~{failure: msg}: 
 				if(times==0){
 					graceful_inform(msg);
 					{failure: msg}
 				}else{
-					Log.info("retrying!!", "r");
-					retry_on_failure(my_func, times-1);
+					Log.notice("Retry ", msg);
+					retry(closure, times-1);
 				}
 		}	
 	}
 
 	function graceful_inform(msg){
 		//https://github.com/MLstate/opalang/blob/c9358f8f5648164515f1fe0e651ce0c1aa1e7a2e/lib/stdlib/core/rpc/core/log.opa
-		Log.warning("graceful", msg);
+		Log.error("failed", msg);
 	}
 
 	function direct_inform(msg){
-		alertMsg(msg, "error");
-	}
-
-	private function alertMsg(msg, error_type){
-	    
-	    #msgInform =
-	        <div class="alert alert-{error_type}">
-	            <button type="button" class="close" data-dismiss="alert">x</button>
-	            {msg}
-	        </div>;
+		Client.alert(msg);
 	}
 }

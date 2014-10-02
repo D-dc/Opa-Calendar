@@ -71,20 +71,16 @@ module Event{
 
     */
     server function serverConfirmAndBroadcast(func, event, action, failmsg){
-        closure = function(){
-            match(func(event)){
-                case ~{success: DBevt}: 
-                    //perform broadcast to inform other clients -> will invoke for example for 'update' 
-                    //the function  ClientEvents.updateEvent(event); on all clients (including ourselfs)
-                    broadcast(DBevt, action);
-                    {success}
-                case {failure: _}: 
-                    {failure: failmsg}
-            }
-        } 
+        match(func(event)){
+            case ~{success: DBevt}: 
+                //perform broadcast to inform other clients -> will invoke for example for 'update' 
+                //the function  ClientEvents.updateEvent(event); on all clients (including ourselfs)
+                broadcast(DBevt, action);
+                {success}
+            case {failure: msg}: 
+                Failure.prop({failure: msg}, failmsg);
 
-        //temporarily failure handling
-        Failure.retry_on_failure(closure, 1); //retry once
+        } 
     }
 
     /*

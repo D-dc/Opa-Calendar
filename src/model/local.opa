@@ -38,7 +38,7 @@ client module Local{
     private function loopLocalspace(int from, (int, localData -> void) my_func){
         if(localStorageExists(from)){
             match(getDataById(from)){
-                case {failure}: void
+                case ~{failure: _}: void
                 case ~{success: content}:
                     my_func(from, content)//give the lambda 'my_func' the from and the content
                     if(from!=content.next){
@@ -84,11 +84,11 @@ client module Local{
                     {success: Option.get(d)}
                 case {none}: 
  
-                    {failure}
+                    {failure: "unserialize failure"}
             }
         }else{
 
-            {failure}
+            {failure: "unserialize failure"}
         }
         
     }
@@ -210,7 +210,7 @@ client module Local{
         if(localStorageExists(id)){
             //get the data
             match(getDataById(id)){
-                case {failure}: void
+                case {failure: _}: void
                 case ~{success: oldData}:
                     updatedLocalStorage = {oldData with data:newData}
                     save(updatedLocalStorage, id);
@@ -245,9 +245,9 @@ client module Local{
     function getStorageDataById(int id){
 
         match(getDataById(id)){
-            case {failure}: 
+            case ~{failure: msg}: 
 
-                {failure}
+                {failure: msg}
 
             case ~{success: localData}: 
 

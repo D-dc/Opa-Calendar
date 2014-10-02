@@ -65,8 +65,8 @@ module PlaceParser{
 		}
 
 	//given a string containing xml, this function will do the parsing
-	function Parse(string test_xml){
-		match(Xmlns.try_parse_document(test_xml)){
+	function Parse(string xml){
+		match(Xmlns.try_parse_document(xml)){
 			case ~{some: s}:
 
 				Logging.print("{s.element}")
@@ -75,7 +75,7 @@ module PlaceParser{
 					case {none}: 
 
 						Logging.print("parse fail");
-						{failure}//parsing failed
+						{failure: "failed parse"}//parsing failed
 
 					case ~{some: res}: 
 
@@ -83,7 +83,7 @@ module PlaceParser{
 						{success: res}
 				};
 
-			default: {failure}//parsing failed
+			default: {failure: "failed parse"}//parsing failed
 
 		}
 	}

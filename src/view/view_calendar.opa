@@ -138,41 +138,41 @@ module ViewCalendar{
     We create a session to store current calendar date 
     this avoids the use of a mutable in calendar.opa and is faster.
   */
-  function open_calendar(){
+    function open_calendar(){
 
-    channel = Session.make({current_date:Date.now()}, session_calendar_handler)
+        channel = Session.make({current_date:Date.now()}, session_calendar_handler)
 
-    function Calendar_default(){
-          <div>
-            <div id=calendar>{Session.send(channel, {calendarnow})}</>
-            <div class="btn-group">
-              <button class="btn btn-primary" onclick={function(_){//some effects
-                Dom.transition(#CalendarFull, Dom.Effect.with_duration({fast}, Dom.Effect.fade_out()))
-                Session.send(channel, {calendarprev})
-                Dom.transition(#CalendarFull, Dom.Effect.with_duration({slow}, Dom.Effect.fade_in()))
-                void
-              }}><i class="icon-backward icon-white"> </i> Previous</>
-              <button class="btn btn-primary" onclick={function(_){//some effects
-                Dom.transition(#CalendarFull, Dom.Effect.with_duration({fast}, Dom.Effect.fade_out()))
-                Session.send(channel, {calendarnext})
-                Dom.transition(#CalendarFull, Dom.Effect.with_duration({slow}, Dom.Effect.fade_in()))
-                void
-              }}>Next <i class="icon-forward icon-white"> </i></>
+        function Calendar_default(){
+              <div>
+                <div id=calendar>{Session.send(channel, {calendarnow})}</>
+                <div class="btn-group">
+                  <button class="btn btn-primary" onclick={function(_){//some effects
+                    Dom.transition(#CalendarFull, Dom.Effect.with_duration({fast}, Dom.Effect.fade_out()))
+                    Session.send(channel, {calendarprev})
+                    Dom.transition(#CalendarFull, Dom.Effect.with_duration({slow}, Dom.Effect.fade_in()))
+                    void
+                  }}><i class="icon-backward icon-white"> </i> Previous</>
+                  <button class="btn btn-primary" onclick={function(_){//some effects
+                    Dom.transition(#CalendarFull, Dom.Effect.with_duration({fast}, Dom.Effect.fade_out()))
+                    Session.send(channel, {calendarnext})
+                    Dom.transition(#CalendarFull, Dom.Effect.with_duration({slow}, Dom.Effect.fade_in()))
+                    void
+                  }}>Next <i class="icon-forward icon-white"> </i></>
+                </>
+              </>
+        }
+
+        #main = 
+          <div class="row">
+            <div class="span6" id=CalendarFull>
+              {Calendar_default()}
+            </>
+            <div class="span6">
+              {ViewEvent.EventViewerScreen()}
+              {ViewEvent.EventSchedulerScreen()} 
+              {ViewEvent.EventEditScreen()}
             </>
           </>
     }
-
-    #main = 
-      <div class="row">
-        <div class="span6" id=CalendarFull>
-          {Calendar_default()}
-        </>
-        <div class="span6">
-          {ViewEvent.EventViewerScreen()}
-          {ViewEvent.EventSchedulerScreen()} 
-          {ViewEvent.EventEditScreen()}
-        </>
-      </>
-  }
 
 }

@@ -28,7 +28,8 @@ client module ViewEvent{
                     Failure.direct_inform("Unable to interpret date");
 
                 case {some: event_date}:
-                    evt event={event_id: 0, ~event_name, ~event_description, ~event_date, user:{user_name:"dummy"}, event_place: {unverified_string: meetingPlace}, clock:1};
+                    evt event = {event_id: 0, ~event_name, ~event_description, ~event_date, 
+                                user:{user_name:"dummy"}, event_place: {unverified_string: meetingPlace}, clock:1};
       		        match(Event.addMeeting(event)){
                         case {success}: 
                             Dom.clear_value(#meeting_name);
@@ -42,9 +43,9 @@ client module ViewEvent{
                             //temporarily failure handling
                             Failure.direct_inform("Meeting '{event_name}' could not be created: {msg}"); 
                     }
-
+                    hideMeetingViews();
             }
-            hideMeetingViews();            
+                        
       	});	
 	}
 
@@ -79,9 +80,8 @@ client module ViewEvent{
                             Failure.direct_inform("Unable to modify meeting: {msg}");
                             
                     }
-            }
-            hideMeetingViews();        
-            
+                    hideMeetingViews();
+            } 
       	});	
 	}
 
@@ -101,20 +101,15 @@ client module ViewEvent{
         Delete a selected event and inform the user of the result
     */
     function deleteEvent(evt event){
-        
-        closure=function(){
-            match(Event.deleteMeeting(event)){
-                case {success: _}: 
-                    hideMeetingViews();
-                    View.alert("Event '{event.event_name}' has been deleted.", "success", true);
-                    {success}; //! needed for retry
-                case {failure: msg}:
-                    {failure: msg}; //! needed for retry
-            }
+        match(Event.deleteMeeting(event)){
+            case {success: _}: 
+                hideMeetingViews();
+                View.alert("Event '{event.event_name}' has been deleted.", "success", true);
+                
+            case {failure: msg}:
+                //temporarily failure handling
+                Failure.direct_inform("Unable to delete event: {msg}");
         }
-
-        //temporarily failure handling
-        Failure.retry_on_failure(closure, 1);
     }
 
     /*
