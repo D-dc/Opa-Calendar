@@ -46,13 +46,9 @@ module Event{
                 ClientEvents.deleteEvent(event);//delete the event from local storage
 
         }
-
-        match(res){
-            case {failure: msg}: 
-                //temporarily failure handling
-                Failure.graceful_inform(msg);
-            case {success}: void;
-        }        
+        
+        //temporarily failure handling
+        Failure.graceful_inform(res);    
              
     }
 

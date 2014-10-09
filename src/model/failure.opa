@@ -3,52 +3,66 @@
 // @date: 09/2014
 // @author: Diel Caroes
 //
-// temporarily failure handling
+// temporary failure handling
 //
 
 //type Failure = {string msg}
 //type Either('a, 'b) = {'a Left} or {'b Right}
-
+//	fail = {failure: ""};
 	
 
 module Failure {
-
+	//https://github.com/MLstate/opalang/blob/c9358f8f5648164515f1fe0e651ce0c1aa1e7a2e/lib/stdlib/core/rpc/core/log.opa
 	fail = {failure: ""};
-	
 
+	
+	// Propagate a failure.
 	function outcome('a, string) prop( outcome('a, 'b) original, string msg){
 		match(original){
 			case ~{failure: s1}: 
 				{failure: "{s1}, " + msg};
-			case ~{success: s}: 
-				{success: s};	
+			case {success: _} as s: 
+				s;	
 		}
 	}
 
-	function retry((-> outcome('a, string)) closure, times){
+	// Take a closure which produces an outcome and retry the closure until it succeeds 
+	// or until retry_count reaches zero.
+	function retry((-> outcome('a, string)) closure, retry_count){
 
 		match(closure()){
-			case ~{success: s}:
+			case ~{success: _} as s:
 				Log.notice("Succeeded", "");
-				{success: s};
+				s;
 				
-			case ~{failure: msg}: 
-				if(times==0){
-					graceful_inform(msg);
-					{failure: msg}
+			case ~{failure: msg} as f: 
+				if(retry_count==0){
+					graceful_inform(f);
+					f;
 				}else{
 					Log.notice("Retry ", msg);
-					retry(closure, times-1);
+					retry(closure, retry_count-1);
 				}
 		}	
 	}
 
-	function graceful_inform(msg){
-		//https://github.com/MLstate/opalang/blob/c9358f8f5648164515f1fe0e651ce0c1aa1e7a2e/lib/stdlib/core/rpc/core/log.opa
-		Log.error("failed", msg);
+
+	// Log the error gracefully
+	function graceful_inform(result){
+		match(result){	
+			case ~{failure: msg}:
+				Log.error("failure", msg); 
+			default: void;	
+		}
 	}
 
-	function direct_inform(msg){
-		Client.alert(msg);
+
+	// Inform the client/server of an error
+	function direct_inform(result){
+		match(result){	
+			case ~{failure: msg}:
+				Client.alert(msg); 
+			default: void;	
+		}
 	}
 }

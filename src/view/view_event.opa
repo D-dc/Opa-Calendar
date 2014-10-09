@@ -25,7 +25,7 @@ client module ViewEvent{
                 case {none}: 
                     
                     //temporarily failure handling
-                    Failure.direct_inform("Unable to interpret date");
+                    Failure.direct_inform({failure: "Unable to interpret date"});
 
                 case {some: event_date}:
                     evt event = {event_id: 0, ~event_name, ~event_description, ~event_date, 
@@ -39,9 +39,10 @@ client module ViewEvent{
                             
                             View.alert("Meeting '{event_name}' has been created!", "success", true);
                             
-                        case {failure: msg}:
+                        case {failure: msg} as f:
                             //temporarily failure handling
-                            Failure.direct_inform("Meeting '{event_name}' could not be created: {msg}"); 
+                            
+                            Failure.direct_inform(Failure.prop(f, "Meeting '{event_name}' could not be created")); 
                     }
                     hideMeetingViews();
             }
@@ -67,17 +68,17 @@ client module ViewEvent{
                 case {none}: 
                     
                     //temporarily failure handling
-                    Failure.direct_inform("Unable to interpret date");
+                    Failure.direct_inform({failure: "Unable to interpret date"});
                 case {some: event_date}:
                     evt event={~event_id, ~event_name, ~event_description, ~event_date, ~user, event_place: {unverified_string: meetingPlace}, ~clock}
                     match(Event.editMeeting(event)){
                         case {success}: 
                             View.alert("Meeting '{event_name}' has been modified.", "success", true);
                             
-                        case {failure: msg}: 
+                        case {failure: msg} as f: 
                            
                             //temporarily failure handling
-                            Failure.direct_inform("Unable to modify meeting: {msg}");
+                            Failure.direct_inform(Failure.prop(f, "Unable to modify meeting"));
                             
                     }
                     hideMeetingViews();
@@ -106,9 +107,9 @@ client module ViewEvent{
                 hideMeetingViews();
                 View.alert("Event '{event.event_name}' has been deleted.", "success", true);
                 
-            case {failure: msg}:
+            case {failure: msg} as f:
                 //temporarily failure handling
-                Failure.direct_inform("Unable to delete event: {msg}");
+                Failure.direct_inform(Failure.prop(f, "Unable to delete event"));
         }
     }
 

@@ -26,8 +26,8 @@ module ServerEvents {
                     }else{
 
                         match(GeoCode.to_GeoCode_sync(event.event_place)){
-                            case ~{failure: msg}: //geocode not found or failed
-                                Failure.graceful_inform(msg);
+                            case ~{failure: _} as f: //geocode not found or failed
+                                Failure.graceful_inform(f);
                                 {unverified_string: pl_st};
                             case ~{success}: //geocode found
 
