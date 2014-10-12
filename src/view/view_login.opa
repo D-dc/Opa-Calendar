@@ -23,7 +23,7 @@ module ViewLogin {
 					View.UserOptions();
 					ViewCalendar.open_calendar();
 					
-				case {failure: msg} as f: 
+				case {failure: _} as f: 
 					
 					//temporarily failure handling
 					Failure.direct_inform(f);
@@ -42,7 +42,7 @@ module ViewLogin {
 					
 					View.alert("Account created, you can now log-in with he provided information.", "success", false)
 
-				case {failure: msg} as f:
+				case {failure: _} as f:
 					
 					//temporarily failure handling
 					Failure.direct_inform(f);

@@ -39,7 +39,7 @@ client module ViewEvent{
                             
                             View.alert("Meeting '{event_name}' has been created!", "success", true);
                             
-                        case {failure: msg} as f:
+                        case {failure: _} as f:
                             //temporarily failure handling
                             
                             Failure.direct_inform(Failure.prop(f, "Meeting '{event_name}' could not be created")); 
@@ -75,7 +75,7 @@ client module ViewEvent{
                         case {success}: 
                             View.alert("Meeting '{event_name}' has been modified.", "success", true);
                             
-                        case {failure: msg} as f: 
+                        case {failure: _} as f: 
                            
                             //temporarily failure handling
                             Failure.direct_inform(Failure.prop(f, "Unable to modify meeting"));
@@ -107,7 +107,7 @@ client module ViewEvent{
                 hideMeetingViews();
                 View.alert("Event '{event.event_name}' has been deleted.", "success", true);
                 
-            case {failure: msg} as f:
+            case {failure: _} as f:
                 //temporarily failure handling
                 Failure.direct_inform(Failure.prop(f, "Unable to delete event"));
         }

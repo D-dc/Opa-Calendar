@@ -46,7 +46,9 @@ module GeoCode{
 					Log.notice("HTTP REQ: ", Uri.to_string(location));
 					callback(WebClient.Get.try_get_with_options(location, options));
 				};
-				Failure.retry(closure, 5);	
+				
+				Failure.retry(closure, Retry.later);
+					
             default: Failure.fail
         }  
 	}
@@ -54,19 +56,14 @@ module GeoCode{
 	/**
 		Callback function for async request
 	*/
-	function outcome('a, string) callback(request_result){
+	private function outcome callback(request_result){
 		match(request_result){
 
 			case ~{success: s}: 
-				match (WebClient.Result.get_class(s)) {
-    				case {success}:
-    					PlaceParser.Parse(s.content);
-       				default: 
-       					Failure.prop(Failure.fail, "failcode {s.code}");
-        	}
+    			PlaceParser.Parse(s.content);
 
-        	case ~{failure: f}: 
-				Failure.prop({failure: f}, "request failed");	
+        	case ~{failure: _} as f: 
+        		Failure.prop({failure: f}, "request failed");	
 		}
 	}
 }
